@@ -1,16 +1,20 @@
 // frontend/src/App.js
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    fetch('http://localhost:5000/api/greet')
+      .then((response) => response.json())
+      .then((data) => setMessage(data.message));
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Welcome to My React App!</h1>
-        <p>
-          This is a simple React app created using Create React App.
-        </p>
+        <h1>{message ? message : 'Loading...'}</h1>
       </header>
     </div>
   );
