@@ -20,20 +20,18 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.x
-       
 
       - name: Set up Node
         uses: actions/setup-node@v2
         with:
           node-version: '14'
 
-
       - name: Install Node dependencies
-  run: |
-    cd frontend
-    npm install
+        run: |
+          cd frontend
+          npm install
 
-- name: Build ReactJS frontend
-  run: |
-    cd frontend
-    npm run build
+      - name: Build ReactJS frontend
+        run: |
+          cd frontend
+          npm run build
